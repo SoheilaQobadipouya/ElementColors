@@ -22,6 +22,8 @@ const FileStyle=
     "right: 50px;"+
     "top: 50px;"+
     "cursor: move;"+
+    "color:#000 !important;"+
+    "padding: 10px;"+
 "}"+
 "</style>";
 $("body").append(FileStyle);
@@ -38,7 +40,8 @@ const FileDependencies=
 /***********Add Color Palette************** */
 const ColorPalette=
 '<div id="ColorPickerContainer">'+
-            '<p>Select color and then click on your element:</p>'+
+            'Select color and then click on your element:'+
+            '<br/>'+
             'Back Color:<input id="SelectedBackColor" value="#3399FF80" data-jscolor="{}">'+
             'Font Color:<input id="SelectedColor" value="#3399FF80" data-jscolor="{}">'+
         '</div>';
@@ -51,13 +54,13 @@ const ColorTarget={
 var CurrentPosition="";
 /***********             ************** */
 $(document).on("click", "*", function (event) {
-    if(event.target.id!="SelectedColor" && event.target.id!="SelectedBackColor"){
+    if(event.target.id!="SelectedColor" && event.target.id!="SelectedBackColor" && event.target.id!="ColorPickerContainer"){
         if(event.target==this){
             if(CurrentPosition==ColorTarget.BACKGROUND){
-                $(event.target).attr("style",ColorTarget.BACKGROUND+":"+$("#SelectedBackColor").val());
+                $(event.target).css(ColorTarget.BACKGROUND,$("#SelectedBackColor").val());
             }
             else if(CurrentPosition==ColorTarget.FONT){
-                $(event.target).attr("style",ColorTarget.FONT+":"+$("#SelectedColor").val());
+                $(event.target).css(ColorTarget.FONT,$("#SelectedColor").val());
             }
         }
     }
