@@ -8,9 +8,8 @@ const FileStyle=
 "}"+
 "#SelectedColor,#SelectedBackColor {"+
     "height: 50px;"+
-    "width: 290px;"+
+    "width: 280px;"+
     "border: none;"+
-    "margin: 5px;"+
 "}"+
 "#ColorPickerContainer {"+
     "width: 300px;"+
